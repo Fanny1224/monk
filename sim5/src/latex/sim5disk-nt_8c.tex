@@ -1,0 +1,252 @@
+\hypertarget{sim5disk-nt_8c}{}\section{sim5disk-\/nt.c File Reference}
+\label{sim5disk-nt_8c}\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC int \hyperlink{sim5disk-nt_8c_a0d21c45c6cae4ab611409f661d6031e4}{disk\+\_\+nt\+\_\+setup} (double M, double a, double mdot\+\_\+or\+\_\+L, double alpha, int options)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5disk-nt_8c_a27159e5846914b6f75ed1a4bbad03cea}{disk\+\_\+nt\+\_\+finish} ()
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a8922cee7769517cf6984134ad8caa0b6}{disk\+\_\+nt\+\_\+r\+\_\+min} ()
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a1ad909d4e1c2190fe59faddc3767b475}{disk\+\_\+nt\+\_\+flux} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a9f4d9802a8c4133589b71066d45086de}{disk\+\_\+nt\+\_\+lum} ()
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a5886e0305745277c267ce2c160973d0b}{disk\+\_\+nt\+\_\+mdot} ()
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_ad4926b8b12d935681a2ed24cba8d9380}{disk\+\_\+nt\+\_\+temp} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a9bf97ee42a093ec47af5d7381cb62e73}{disk\+\_\+nt\+\_\+sigma} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a2a1cdf30047160340c200afd110c0890}{disk\+\_\+nt\+\_\+redshift} (double r, double lambda)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a5334fc211402dd26b97d0c45f905b48e}{disk\+\_\+nt\+\_\+ell} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a9f37916b29db679c9e3484a6322eed34}{disk\+\_\+nt\+\_\+vr} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_a9cd799d74b6b550d966e8a57447f1612}{disk\+\_\+nt\+\_\+h} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5disk-nt_8c_aa85e75da9c7570c5e3896f3978e3bf70}{disk\+\_\+nt\+\_\+dhdr} (double r)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5disk-nt_8c_a4fd407e49157242787128aef15df4050}{disk\+\_\+nt\+\_\+dump} ()
+\item 
+\mbox{\Hypertarget{sim5disk-nt_8c_a021ab3339770a9db8981fa427b1d345c}\label{sim5disk-nt_8c_a021ab3339770a9db8981fa427b1d345c}} 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double {\bfseries disk\+\_\+nt\+\_\+find\+\_\+mdot\+\_\+for\+\_\+luminosity} (double L0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Thin disk routines
+
+Provides routines for Novikov-\/\+Thorne thin disk model 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sim5disk-nt_8c_aa85e75da9c7570c5e3896f3978e3bf70}\label{sim5disk-nt_8c_aa85e75da9c7570c5e3896f3978e3bf70}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+dhdr@{disk\+\_\+nt\+\_\+dhdr}}
+\index{disk\+\_\+nt\+\_\+dhdr@{disk\+\_\+nt\+\_\+dhdr}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+dhdr()}{disk\_nt\_dhdr()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+dhdr (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Derivative of surface height. Returns surface profile as derivative $dH/dR$ of its height above midplane at given radius. (For thin disk approximation, this is always zero.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Derivative of surface height. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a4fd407e49157242787128aef15df4050}\label{sim5disk-nt_8c_a4fd407e49157242787128aef15df4050}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+dump@{disk\+\_\+nt\+\_\+dump}}
+\index{disk\+\_\+nt\+\_\+dump@{disk\+\_\+nt\+\_\+dump}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+dump()}{disk\_nt\_dump()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void disk\+\_\+nt\+\_\+dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Dump function printing disk provile. The function prints to stdout profile of all quantities as a function fo radius from r\+\_\+ms to some outer radius ($\sim$2000 rg). \mbox{\Hypertarget{sim5disk-nt_8c_a5334fc211402dd26b97d0c45f905b48e}\label{sim5disk-nt_8c_a5334fc211402dd26b97d0c45f905b48e}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+ell@{disk\+\_\+nt\+\_\+ell}}
+\index{disk\+\_\+nt\+\_\+ell@{disk\+\_\+nt\+\_\+ell}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+ell()}{disk\_nt\_ell()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+ell (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Specific angular momentum. Returns specific angular momentum of the fluid at given radius.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Specific angular momentum in \mbox{[}g.\+u.\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a27159e5846914b6f75ed1a4bbad03cea}\label{sim5disk-nt_8c_a27159e5846914b6f75ed1a4bbad03cea}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+finish@{disk\+\_\+nt\+\_\+finish}}
+\index{disk\+\_\+nt\+\_\+finish@{disk\+\_\+nt\+\_\+finish}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+finish()}{disk\_nt\_finish()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void disk\+\_\+nt\+\_\+finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Finalize the disk model. Cleans up and frees memory. \mbox{\Hypertarget{sim5disk-nt_8c_a1ad909d4e1c2190fe59faddc3767b475}\label{sim5disk-nt_8c_a1ad909d4e1c2190fe59faddc3767b475}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+flux@{disk\+\_\+nt\+\_\+flux}}
+\index{disk\+\_\+nt\+\_\+flux@{disk\+\_\+nt\+\_\+flux}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+flux()}{disk\_nt\_flux()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+flux (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Local flux from one side of the disk. Provides radial radiation flux dependence for Novikov-\/\+Thorne accretion disk. Formulae based on Page\&Thorne(1974) \href{http://adsabs.harvard.edu/abs/1974ApJ...191..499P}{\tt http\+://adsabs.\+harvard.\+edu/abs/1974\+Ap\+J...\+191..\+499P}
+
+Note the retuned flux is local flux, i.\+e. flux measured by observer that is at rest with respect to the fluid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius of emission \mbox{[}G\+M/c2\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total outgoing flux from unit area on one side of the disk \mbox{[}erg cm-\/2 s-\/1\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a9cd799d74b6b550d966e8a57447f1612}\label{sim5disk-nt_8c_a9cd799d74b6b550d966e8a57447f1612}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+h@{disk\+\_\+nt\+\_\+h}}
+\index{disk\+\_\+nt\+\_\+h@{disk\+\_\+nt\+\_\+h}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+h()}{disk\_nt\_h()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+h (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Surface height. Returns height of the surface of the disk (effective photosphere) above midplane at given radius. (For thin disk approximation, this is always zero.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Radial velocity in \mbox{[}speed\+\_\+of\+\_\+light\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a9f4d9802a8c4133589b71066d45086de}\label{sim5disk-nt_8c_a9f4d9802a8c4133589b71066d45086de}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+lum@{disk\+\_\+nt\+\_\+lum}}
+\index{disk\+\_\+nt\+\_\+lum@{disk\+\_\+nt\+\_\+lum}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+lum()}{disk\_nt\_lum()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+lum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets total disk luminosity. Luminosity is obtained by integrating local flux over the surface area of the disk going into the whole sky (4pi solid angle). The integration makes a proper transformation of local flux to coordinate frame, but ignores other relativistic effects like light bending.
+
+\[L = 2 * 2\pi \int F(r) r dr\]
+
+\begin{DoxyReturn}{Returns}
+Total disk luminosity of both surfaces \mbox{[}erg s-\/1\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a5886e0305745277c267ce2c160973d0b}\label{sim5disk-nt_8c_a5886e0305745277c267ce2c160973d0b}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+mdot@{disk\+\_\+nt\+\_\+mdot}}
+\index{disk\+\_\+nt\+\_\+mdot@{disk\+\_\+nt\+\_\+mdot}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+mdot()}{disk\_nt\_mdot()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+mdot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Mass accretion rate. Returns mass accretion rate in Eddington units. See {\ttfamily \hyperlink{sim5disk-nt_8c_a0d21c45c6cae4ab611409f661d6031e4}{disk\+\_\+nt\+\_\+setup()}} for details.
+
+\begin{DoxyReturn}{Returns}
+Mass accretion rate in Eddington units. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a8922cee7769517cf6984134ad8caa0b6}\label{sim5disk-nt_8c_a8922cee7769517cf6984134ad8caa0b6}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+r\+\_\+min@{disk\+\_\+nt\+\_\+r\+\_\+min}}
+\index{disk\+\_\+nt\+\_\+r\+\_\+min@{disk\+\_\+nt\+\_\+r\+\_\+min}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+r\+\_\+min()}{disk\_nt\_r\_min()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+r\+\_\+min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Minimal radius of the disk (disk inner edge). Provides minimal value for radius for which the functions provide valid results. For NT disk, this corresponds to the radius of marginally stable orbit (r\+\_\+ms), where there is zero torque in the fluid.
+
+\begin{DoxyReturn}{Returns}
+Radius of disk inner edge \mbox{[}G\+M/c2\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a2a1cdf30047160340c200afd110c0890}\label{sim5disk-nt_8c_a2a1cdf30047160340c200afd110c0890}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+redshift@{disk\+\_\+nt\+\_\+redshift}}
+\index{disk\+\_\+nt\+\_\+redshift@{disk\+\_\+nt\+\_\+redshift}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+redshift()}{disk\_nt\_redshift()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+redshift (\begin{DoxyParamCaption}\item[{double}]{r,  }\item[{double}]{lambda }\end{DoxyParamCaption})}
+
+Redshift Return redshift (i.\+e., E\+\_\+\{\}/\+E\+\_\+l) at given radius
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]} \\
+\hline
+{\em lambda} & constants of motion; angular momentum with respect to Z axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redshift (dimensionless) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a0d21c45c6cae4ab611409f661d6031e4}\label{sim5disk-nt_8c_a0d21c45c6cae4ab611409f661d6031e4}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+setup@{disk\+\_\+nt\+\_\+setup}}
+\index{disk\+\_\+nt\+\_\+setup@{disk\+\_\+nt\+\_\+setup}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+setup()}{disk\_nt\_setup()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC int disk\+\_\+nt\+\_\+setup (\begin{DoxyParamCaption}\item[{double}]{M,  }\item[{double}]{a,  }\item[{double}]{mdot\+\_\+or\+\_\+L,  }\item[{double}]{alpha,  }\item[{int}]{options }\end{DoxyParamCaption})}
+
+Set up a relativistic (Novikov-\/\+Thorne) model of thin disk. The disk can be set up using either mass accretion rate or luminosity. In case of Mdot, this is specified as a ratio of actual accretion rate in grams per second to the Eddington mass acretion rate corresponding to the given mass. The Eddington mass accretion rate constant is declared in \hyperlink{sim5const_8h}{sim5const.\+h}. In case of luminosity, the model sets accretion rate such that the integrated disk luminosity matches the given value in ergs/sec relative to the Eddington luminosity again declared in \hyperlink{sim5const_8h}{sim5const.\+h}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & mass of central BH \mbox{[}M\+\_\+sun\mbox{]} \\
+\hline
+{\em a} & spin of central BH \mbox{[}0..1\mbox{]} \\
+\hline
+{\em mdot\+\_\+or\+\_\+L} & mass accretion rate (default) or luminosity (both in eddington units; see \hyperlink{sim5const_8h}{sim5const.\+h}) \\
+\hline
+{\em alpha} & viscosity parameter \\
+\hline
+{\em options} & optional switches (default=0; switches can be combined with {\ttfamily +} operator)
+\begin{DoxyItemize}
+\item D\+I\+S\+K\+\_\+\+N\+T\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+U\+M\+I\+N\+O\+S\+I\+TY\+: {\ttfamily mdot\+\_\+or\+\_\+L} parameter is interpreted as luminosity
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A status code (currently zero) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a9bf97ee42a093ec47af5d7381cb62e73}\label{sim5disk-nt_8c_a9bf97ee42a093ec47af5d7381cb62e73}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+sigma@{disk\+\_\+nt\+\_\+sigma}}
+\index{disk\+\_\+nt\+\_\+sigma@{disk\+\_\+nt\+\_\+sigma}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+sigma()}{disk\_nt\_sigma()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+sigma (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Column density. Returns midplane column density of the fluid at given radius for the first two zones according to formulae from Chandrasekhar book.
+
+\[ \Sigma = \int_0^H \rho dz \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Midplane column density in \mbox{[}g/cm2\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_ad4926b8b12d935681a2ed24cba8d9380}\label{sim5disk-nt_8c_ad4926b8b12d935681a2ed24cba8d9380}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+temp@{disk\+\_\+nt\+\_\+temp}}
+\index{disk\+\_\+nt\+\_\+temp@{disk\+\_\+nt\+\_\+temp}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+temp()}{disk\_nt\_temp()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+temp (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Effective temperature. Returns disk effective temperature at given radius. The temperature value corresponds to total outgoing flux at thar radius through the Steffan-\/\+Boltzmann law.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Effective surface temperatute in \mbox{[}K\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5disk-nt_8c_a9f37916b29db679c9e3484a6322eed34}\label{sim5disk-nt_8c_a9f37916b29db679c9e3484a6322eed34}} 
+\index{sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}!disk\+\_\+nt\+\_\+vr@{disk\+\_\+nt\+\_\+vr}}
+\index{disk\+\_\+nt\+\_\+vr@{disk\+\_\+nt\+\_\+vr}!sim5disk-\/nt.\+c@{sim5disk-\/nt.\+c}}
+\subsubsection{\texorpdfstring{disk\+\_\+nt\+\_\+vr()}{disk\_nt\_vr()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double disk\+\_\+nt\+\_\+vr (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+
+Radial velocity. Returns bulk radial velocity of the fluid at given radius. (For thin disk approximation, this is always zero.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & radius (measured in equatorial plane) \mbox{[}rg\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Radial velocity in \mbox{[}speed\+\_\+of\+\_\+light\mbox{]}. 
+\end{DoxyReturn}

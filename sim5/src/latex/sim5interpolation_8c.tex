@@ -1,0 +1,128 @@
+\hypertarget{sim5interpolation_8c}{}\section{sim5interpolation.\+c File Reference}
+\label{sim5interpolation_8c}\index{sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5interpolation_8c_afa89486db6ae47dcf36d4b4dac91f160}{sim5\+\_\+interp\+\_\+init} (\hyperlink{structsim5interp}{sim5interp} $\ast$interp, double xa\mbox{[}$\,$\mbox{]}, double ya\mbox{[}$\,$\mbox{]}, long N, int data\+\_\+model, int interp\+\_\+type, int interp\+\_\+options)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5interpolation_8c_a2915502fa49c43b1a2a2659d5c63c07e}{sim5\+\_\+interp\+\_\+data\+\_\+push} (\hyperlink{structsim5interp}{sim5interp} $\ast$interp, double x, double y)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC double \hyperlink{sim5interpolation_8c_a67ac75c006145796a4e021bf928822e4}{sim5\+\_\+interp\+\_\+eval} (\hyperlink{structsim5interp}{sim5interp} $\ast$interp, double x)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5interpolation_8c_af3f64e7318870cb5492c6761c73bcb29}{sim5\+\_\+interp\+\_\+done} (\hyperlink{structsim5interp}{sim5interp} $\ast$interp)
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC \hyperlink{structsim5interp}{sim5interp} $\ast$ \hyperlink{sim5interpolation_8c_a25a6915e5de4d123d07d1e8c9f6ae291}{sim5\+\_\+interp\+\_\+alloc} ()
+\item 
+D\+E\+V\+I\+C\+E\+F\+U\+NC void \hyperlink{sim5interpolation_8c_a1a3470b633d14bfa5729e5086ef1390b}{sim5\+\_\+interp\+\_\+free} (\hyperlink{structsim5interp}{sim5interp} $\ast$interp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interpolation routines.
+
+Provides routines for interpolation of table data. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sim5interpolation_8c_a25a6915e5de4d123d07d1e8c9f6ae291}\label{sim5interpolation_8c_a25a6915e5de4d123d07d1e8c9f6ae291}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+alloc@{sim5\+\_\+interp\+\_\+alloc}}
+\index{sim5\+\_\+interp\+\_\+alloc@{sim5\+\_\+interp\+\_\+alloc}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+alloc()}{sim5\_interp\_alloc()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC \hyperlink{structsim5interp}{sim5interp}$\ast$ sim5\+\_\+interp\+\_\+alloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Alloc interpolation object memory. Makes a memory allocation for interpolation object. This function should be used for heap-\/allocated variant of usage\+: \begin{DoxyVerb}sim5interp* interp;
+interp = sim5_interp_alloc();
+sim5_interp_init(interp, ...);
+sim5_interp_free(interp);
+\end{DoxyVerb}
+
+
+\begin{DoxyReturn}{Returns}
+Interpolation object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5interpolation_8c_a2915502fa49c43b1a2a2659d5c63c07e}\label{sim5interpolation_8c_a2915502fa49c43b1a2a2659d5c63c07e}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+data\+\_\+push@{sim5\+\_\+interp\+\_\+data\+\_\+push}}
+\index{sim5\+\_\+interp\+\_\+data\+\_\+push@{sim5\+\_\+interp\+\_\+data\+\_\+push}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+data\+\_\+push()}{sim5\_interp\_data\_push()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void sim5\+\_\+interp\+\_\+data\+\_\+push (\begin{DoxyParamCaption}\item[{\hyperlink{structsim5interp}{sim5interp} $\ast$}]{interp,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+Pushes data into interpolation object. Adds a data point \mbox{[}x,y\mbox{]} into the interpolation object. This function is for filling interpolation object that has been created with option I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+I\+LD with interolated data. The data must come in ordered sequence (x\mbox{[}i\mbox{]} $<$ x\mbox{[}i+1\mbox{]})
+
+
+\begin{DoxyParams}{Parameters}
+{\em interp} & interpolation object \\
+\hline
+{\em x} & x-\/value of data point \\
+\hline
+{\em y} & y-\/value of data point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sim5interpolation_8c_af3f64e7318870cb5492c6761c73bcb29}\label{sim5interpolation_8c_af3f64e7318870cb5492c6761c73bcb29}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+done@{sim5\+\_\+interp\+\_\+done}}
+\index{sim5\+\_\+interp\+\_\+done@{sim5\+\_\+interp\+\_\+done}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+done()}{sim5\_interp\_done()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void sim5\+\_\+interp\+\_\+done (\begin{DoxyParamCaption}\item[{\hyperlink{structsim5interp}{sim5interp} $\ast$}]{interp }\end{DoxyParamCaption})}
+
+Interpolation finalization. Frees the interpolation object interp (including a copied data, if necessary).
+
+
+\begin{DoxyParams}{Parameters}
+{\em interp} & interpolation object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sim5interpolation_8c_a67ac75c006145796a4e021bf928822e4}\label{sim5interpolation_8c_a67ac75c006145796a4e021bf928822e4}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+eval@{sim5\+\_\+interp\+\_\+eval}}
+\index{sim5\+\_\+interp\+\_\+eval@{sim5\+\_\+interp\+\_\+eval}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+eval()}{sim5\_interp\_eval()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC double sim5\+\_\+interp\+\_\+eval (\begin{DoxyParamCaption}\item[{\hyperlink{structsim5interp}{sim5interp} $\ast$}]{interp,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+Interpolated data evaluation. Makes the evalutaion on interpolated grid at given point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em interp} & interpolation object \\
+\hline
+{\em x} & value for which to get interpolated value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpolated value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sim5interpolation_8c_a1a3470b633d14bfa5729e5086ef1390b}\label{sim5interpolation_8c_a1a3470b633d14bfa5729e5086ef1390b}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+free@{sim5\+\_\+interp\+\_\+free}}
+\index{sim5\+\_\+interp\+\_\+free@{sim5\+\_\+interp\+\_\+free}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+free()}{sim5\_interp\_free()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void sim5\+\_\+interp\+\_\+free (\begin{DoxyParamCaption}\item[{\hyperlink{structsim5interp}{sim5interp} $\ast$}]{interp }\end{DoxyParamCaption})}
+
+Free interpolation object memory. Frees the interpolation object interp that had been previously alocated by {\ttfamily \hyperlink{sim5interpolation_8c_a25a6915e5de4d123d07d1e8c9f6ae291}{sim5\+\_\+interp\+\_\+alloc()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em interp} & interpolation object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sim5interpolation_8c_afa89486db6ae47dcf36d4b4dac91f160}\label{sim5interpolation_8c_afa89486db6ae47dcf36d4b4dac91f160}} 
+\index{sim5interpolation.\+c@{sim5interpolation.\+c}!sim5\+\_\+interp\+\_\+init@{sim5\+\_\+interp\+\_\+init}}
+\index{sim5\+\_\+interp\+\_\+init@{sim5\+\_\+interp\+\_\+init}!sim5interpolation.\+c@{sim5interpolation.\+c}}
+\subsubsection{\texorpdfstring{sim5\+\_\+interp\+\_\+init()}{sim5\_interp\_init()}}
+{\footnotesize\ttfamily D\+E\+V\+I\+C\+E\+F\+U\+NC void sim5\+\_\+interp\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structsim5interp}{sim5interp} $\ast$}]{interp,  }\item[{double}]{xa\mbox{[}$\,$\mbox{]},  }\item[{double}]{ya\mbox{[}$\,$\mbox{]},  }\item[{long}]{N,  }\item[{int}]{data\+\_\+model,  }\item[{int}]{interp\+\_\+type,  }\item[{int}]{interp\+\_\+options }\end{DoxyParamCaption})}
+
+Interpolation initialization. Initializes the interpolation object {\ttfamily interp} with the data (xa,ya) where xa and ya are arrays of size N. 
+\begin{DoxyParams}{Parameters}
+{\em interp} & interpolation object \\
+\hline
+{\em xa} & array of x values ({\ttfamily xa} data array is always assumed to be strictly ordered, with increasing x values) \\
+\hline
+{\em ya} & array of y values \\
+\hline
+{\em N} & size of x/y arrays \\
+\hline
+{\em data\+\_\+model} & switch that determines how input data in {\ttfamily xa} and {\ttfamily ya} arrays should be handled\+: I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+R\+EF=X/Y arrays are referenced, I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+C\+O\+PY=X/Y arrays are copied, I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+I\+LD=X/Y arrays are not passed, they are build by calls to \hyperlink{sim5interpolation_8c_a2915502fa49c43b1a2a2659d5c63c07e}{sim5\+\_\+interp\+\_\+data\+\_\+push()}; with I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+R\+EF option (default), the interpolation object (interp) does not save the data arrays {\ttfamily xa} and {\ttfamily ya}, only saves pointers to them; with I\+N\+T\+E\+R\+P\+\_\+\+D\+A\+T\+A\+\_\+\+C\+O\+PY it makes an independent copy of those arrays, in which case the original arrays can be modified or freed after calling \hyperlink{sim5interpolation_8c_afa89486db6ae47dcf36d4b4dac91f160}{sim5\+\_\+interp\+\_\+init()} \\
+\hline
+{\em interp\+\_\+type} & determines in which way data will be interpolated\+: I\+N\+T\+E\+R\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+I\+N\+L\+IN=linear interpolation in both X and Y, I\+N\+T\+E\+R\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+I\+N\+L\+OG=linear interpolation in X, logarithmic in Y, I\+N\+T\+E\+R\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+L\+IN=logarithmic interpolation in X, linear in Y, I\+N\+T\+E\+R\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+L\+OG=logarithmic interpolation in both X and Y, I\+N\+T\+E\+R\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+P\+L\+I\+NE=linear cubic spline interpolation \\
+\hline
+{\em interp\+\_\+options} & specifies additional options (a combination of options can be used)\+: I\+N\+T\+E\+R\+P\+\_\+\+O\+P\+T\+\_\+\+A\+C\+C\+EL=interpolation will use acceleration (cashing of index values), I\+N\+T\+E\+R\+P\+\_\+\+O\+P\+T\+\_\+\+C\+A\+N\+\_\+\+E\+X\+T\+R\+A\+P\+O\+L\+A\+TE=extrapolation is allowed when an {\ttfamily x} value for an of-\/out-\/grid point is requested\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\ttfamily interp} object to be used in actual interpolation. 
+\end{DoxyReturn}

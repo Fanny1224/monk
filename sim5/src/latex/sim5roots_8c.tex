@@ -1,0 +1,37 @@
+\hypertarget{sim5roots_8c}{}\section{sim5roots.\+c File Reference}
+\label{sim5roots_8c}\index{sim5roots.\+c@{sim5roots.\+c}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{sim5roots_8c_a58f48ca63c0f60b88f96b1fe6430078f}{rtbis} (double x1, double x2, double xacc, double($\ast$fx)(double), double $\ast$result)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Root finding.
+
+Provides routines for ffinding roots of functions. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sim5roots_8c_a58f48ca63c0f60b88f96b1fe6430078f}\label{sim5roots_8c_a58f48ca63c0f60b88f96b1fe6430078f}} 
+\index{sim5roots.\+c@{sim5roots.\+c}!rtbis@{rtbis}}
+\index{rtbis@{rtbis}!sim5roots.\+c@{sim5roots.\+c}}
+\subsubsection{\texorpdfstring{rtbis()}{rtbis()}}
+{\footnotesize\ttfamily long rtbis (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{x2,  }\item[{double}]{xacc,  }\item[{double($\ast$)(double)}]{fx,  }\item[{double $\ast$}]{result }\end{DoxyParamCaption})}
+
+Root finding. Finds root of a function on an interval. Using bisection method, finds the root of a function {\ttfamily fx} that is known to lie between {\ttfamily x1} and {\ttfamily x2}. The root, returned as {\ttfamily result}, will be refined until its accuracy is +/-\/ xacc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & left boundary of the interval where the root is searched for \\
+\hline
+{\em x2} & right boundary of the interval where the root is searched for \\
+\hline
+{\em xacc} & accuracy \\
+\hline
+{\em fx} & function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if OK and the root position in {\ttfamily result}, 0 if error. 
+\end{DoxyReturn}
