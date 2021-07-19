@@ -1,0 +1,21 @@
+[physical]
+m = 1e7 # BH mass
+mdot = 0.1 # Eddington mdot; Mdot = 2.23e18 * m * mdot [g/s]
+tau = 0.2 # corona optical depth
+te = 100 # corona temperature
+rin = -1. # rin of thin disc
+fcol = 1.7 # color correction factor
+
+[gridsize]
+nphoton = 1 # number of photons per geodesic; increase nphoton to enhance statistics
+
+[option]
+progress = 1 # whether to show progress
+pol = 1 # whether to do polarization calculations
+dr = 1e-4 # raytracing step size; 
+scafile = ../sca_params.dat # path to sca_params.dat
+gparamfile = ../gparams.dat # path to gparams.dat
+KN = 1 # whether to use Klein-Nishina cross-section; if not, use Thompson cross-section
+chandra = 1 # assumption on the limb-darkening and polarization properties of disc photons; if chandra = 0: we assume the disc
+			# photons to be unpolarized and isotropic; otherwise the limb-darkening factor and polarization properties
+			# follows the results for semi-infinite scattering atmosphere, Chandrasekhar 1960 <<Radiative Transfer>>

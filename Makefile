@@ -1,7 +1,7 @@
 CXX = g++
 MPICXX = mpic++
 
-STD = -std=c++17
+STD = -std=c++14
 OPTIM = -O2
 WALL = -Wall
 PROFILE = -g -pg
@@ -31,7 +31,7 @@ $(OBJS): %: %.cpp | $(OBJDIR)
 	$(CXX) $(CFLAGS) $< -c -o $(OBJDIR)/$@.o
 
 # recipes for binaries
-BINS = calspec 3dcorona ns_surface_write ns_surface nscorona
+BINS = calspec 3dcorona
 BINFILES = $(patsubst %, $(BINDIR)/%, $(BINS))
 INSTALLEDBINS = $(patsubst %, $(INSTALLDIR)/%, $(BINS))
 $(BINS): %: %.cpp $(OBJSRCS)
@@ -42,10 +42,6 @@ $(BINS): %: %.cpp $(OBJSRCS)
 3dcorona_mpi:
 	$(MPICXX) $(CFLAGS) 3dcorona_mpi.cpp $(OBJFILES) $(LDFLAGS) -o $(BINDIR)/3dcorona_mpi
 	cp $(BINDIR)/3dcorona_mpi $(INSTALLDIR)
-
-nscorona_mpi:
-	$(MPICXX) $(CFLAGS) nscorona_mpi.cpp $(OBJFILES) $(LDFLAGS) -o $(BINDIR)/nscorona_mpi
-	cp $(BINDIR)/nscorona_mpi $(INSTALLDIR)
 
 clean:
 	mv $(OBJDIR)/*.o $(TRASHDIR)

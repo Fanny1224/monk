@@ -149,7 +149,7 @@ int main(int argc, char * argv[]) {
         long ntheta, n = 0, nparam = 16, it0, it1, nseg, offset = 6;
         double m, te, te_emass, tau, fcol, mdot, dr;
         long nphoton;
-        long type; // geometry, 0: sphere; 
+        long type = 2; // geometry, 0: sphere; 
         std::vector<double> gparams;
         
         // check if output directories exist
@@ -175,15 +175,6 @@ int main(int argc, char * argv[]) {
             
         std::ofstream logfile("3dcorona.log");
         
-        if (!parfile.GetInteger("option", "type", type)) {
-            std::cout << "missing parameter type!" << std::endl;
-            return 1;
-        }
-        
-        if (type != 2) {
-            std::cerr << "Type should be equal to 2!" << std::endl;
-            return 1;
-        }
         
         if (!parfile.GetReal("physical", "fcol", fcol)) {
             std::cout << "missing parameter fcol!" << std::endl;

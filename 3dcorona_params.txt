@@ -1,0 +1,15 @@
+[physical]
+a = 0.998 # bh spin
+rin = -1 # thin disc rin; if rin < rms: rin = rms
+rout = 100. # thin disc rout
+gtype = 0 # corona type; 0: spherical above the disc; for more see `3dcorona.cpp`, `tridgeo.cpp`, and `tridgeo.h`
+h = 5. # corona height
+radius = 1. # corona radius
+
+[gridsize]
+nr = 50 # number of radial bins
+ntheta = 50 # number of theta-bin when sampling photons emitted by the disc
+nphi = 50 # number of phi-bin when sampling photons emitted by the disc
+
+[option]
+progress = 1 # whether to show progress
