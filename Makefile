@@ -7,8 +7,9 @@ WALL = -Wall
 PROFILE = -g -pg
 GDB = -g
 
-SIM5INC = $(HOME)/data/sim5corona/monk/src/sim5/src
-SIM5OBJ = $(HOME)/data/sim5corona/monk/src/sim5/src/sim5lib.o
+MONKDIR = $(HOME)/data/sim5corona/monk
+SIM5INC = $(MONKDIR)/src/sim5/src
+SIM5OBJ = $(MONKDIR)/src/sim5/src/sim5lib.o
 DEBUG = -UDEBUG
 
 # compilation flags
