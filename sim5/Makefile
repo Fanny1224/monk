@@ -15,7 +15,7 @@ clean:
 all: lib python export
 	@echo "done"
 
-lib: lib-clean
+lib:
 	$(CC) -c src/sim5lib.c -o src/sim5lib.o $(CFLAGS) $(LFLAGS)
 
 cuda: lib-clean
