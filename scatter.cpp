@@ -1033,10 +1033,10 @@ void tridsca_sp(const bool pol, const bool KN, const double a,
                 
                 if (pol) {
                     on2bl(fmu_p.data(), fmu.data(), &tet);
-                    sim5wp = photon_wp_const(kmu_temp.data(), fmu.data(), &metnow);
+                    sim5wp = polarization_constant(kmu_temp.data(), fmu.data(), &metnow);
                     sp1.poldeg = poldeg_p;
-                    sp1.wp.real(creal(sim5wp));
-                    sp1.wp.imag(cimag(sim5wp));
+                    sp1.wp.real(sim5creal(sim5wp));
+                    sp1.wp.imag(sim5cimag(sim5wp));
                 }
 
                 sp1.rnow = sp.rnow;

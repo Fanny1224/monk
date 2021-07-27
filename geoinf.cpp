@@ -1243,11 +1243,10 @@ double calslabrad(geoinf & geo, const double h) {
 
             // find the intersection point using step-by-step raytracing
             // again x[1] >= h > rh
-            raytrace_prepare(geo.a, x.data(), kmu.data(), NULL, precision, 0, &rtd);
+            raytrace_prepare(geo.a, x.data(), kmu.data(), precision, 0, &rtd);
             kmunow = kmu[2];
             while(kmunow * kmu[2] > 0) {
-                //raytrace1(x.data(), kmu.data(), &step, &rtd);
-				raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+				raytrace(x.data(), kmu.data(), &step, &rtd);
                 if (x[1] * x[2] <= h) {
                     found = true;
                     break;
@@ -1293,10 +1292,9 @@ double calslabrad(geoinf & geo, const double h) {
             x = {0., geo.rr1, geo.muturn, 0.};
             photon_momentum(geo.a, geo.rr1, geo.muturn, geo.l, geo.q, 1., 1., kmu.data());
             kmu[1] = 0.;
-            raytrace_prepare(geo.a, x.data(), kmu.data(), NULL, precision, 0, &rtd);
+            raytrace_prepare(geo.a, x.data(), kmu.data(), precision, 0, &rtd);
             while(x[1] <= geo.re) {
-                //raytrace1(x.data(), kmu.data(), &step, &rtd);
-                raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+                raytrace(x.data(), kmu.data(), &step, &rtd);
                 if (x[1] * x[2] <= h) {
                     found = true;
                     break;
@@ -1334,12 +1332,11 @@ double calslabrad(geoinf & geo, const double h) {
             munow = geo.solvemu(intmu);
             x = {0., rmax, munow, 0.};
             photon_momentum(geo.a, rmax, munow, geo.l, geo.q, -1., -1., kmu.data());
-            raytrace_prepare(geo.a, x.data(), kmu.data(), NULL, precision, 0, &rtd);
+            raytrace_prepare(geo.a, x.data(), kmu.data(), precision, 0, &rtd);
             found = false;
             kmunow = kmu[2];
             while(kmunow * kmu[2] > 0) {
-                //raytrace1(x.data(), kmu.data(), &step, &rtd);
-                raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+                raytrace(x.data(), kmu.data(), &step, &rtd);
                 if (x[1] * x[2] <= h) {
                     found = true;
                     break;
@@ -1377,10 +1374,9 @@ double calslabrad(geoinf & geo, const double h) {
                     kmu[1] = 0.;
                 else
                     kmu[2] = 0.;
-                raytrace_prepare(geo.a, x.data(), kmu.data(), NULL, precision, 0, &rtd);
+                raytrace_prepare(geo.a, x.data(), kmu.data(), precision, 0, &rtd);
                 while(x[2] > 0.) {
-                    //raytrace1(x.data(), kmu.data(), &step, &rtd);
-                    raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+                    raytrace(x.data(), kmu.data(), &step, &rtd);
                     //std::cout << "x = " << x << std::endl;
                     //std::cout << "kmu = " << kmu << std::endl;
                     if (x[1] * x[2] <= h) {
@@ -1430,10 +1426,9 @@ double calslabrad_sim5(const geoinf & geo1, const double h, const double smax, d
 
         x = {0., rmax, munow, 0.};
         photon_momentum(geo1.a, rmax, munow, geo1.l, geo1.q, -1., signtheta, kmu.data());
-        raytrace_prepare(geo1.a, x.data(), kmu.data(), NULL, 0.01, 0, &rtd);
+        raytrace_prepare(geo1.a, x.data(), kmu.data(), 0.01, 0, &rtd);
         while (x[2] > 0){
-            //raytrace1(x.data(), kmu.data(), &step, &rtd);
-            raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+            raytrace(x.data(), kmu.data(), &step, &rtd);
             if (x[1] * x[2] < h) {
                 //std::cout << "x = " << x << std::endl;
                 //std::cout << "k = " << kmu << std::endl;
@@ -1445,8 +1440,7 @@ double calslabrad_sim5(const geoinf & geo1, const double h, const double smax, d
                 while (x[1] * x[2] < h) {
                     xnow = x[1];
                     munow = x[2];
-                    //raytrace1(x.data(), kmu.data(), &step, &rtd);
-                    raytrace(x.data(), kmu.data(), NULL, &step, &rtd);
+                    raytrace(x.data(), kmu.data(), &step, &rtd);
                 }
                 r = (xnow + x[1]) / 2.;
                 //std::cout << "r * mu = " << r * (munow + x[2]) / 2. << std::endl;
@@ -1788,12 +1782,12 @@ double geoinf::calfate_sim5(const double rin, std::array<double, 4> & pos, std::
     sim5metric met;
     raytrace_data rtd;
     rnow = pos[1], munow = pos[2];
-    raytrace_prepare(a, pos.data(), kmu.data(), NULL, precision, 0, &rtd);
+    raytrace_prepare(a, pos.data(), kmu.data(), precision, 0, &rtd);
     
     while(true) {
         //std::cout << "pos = " << pos << std::endl;
         //std::cout << "kmu = " << kmu << std::endl;
-        raytrace1(pos.data(), kmu.data(), &step, &rtd);
+        raytrace(pos.data(), kmu.data(), &step, &rtd);
         
         if (pos[1] <= 1.01 * rh) {
             status = 0;
@@ -2503,13 +2497,13 @@ int geoinf::findxtrid_sim5(const double rin, const tridgeo & trid, std::array<do
     kmusign = (kmu[2] >= 0.) ? -1. : 1.;
     long count = 0;
     raytrace_data rtd;
-    raytrace_prepare(a, pos.data(), kmu.data(), NULL, precision, 0, &rtd);
+    raytrace_prepare(a, pos.data(), kmu.data(), precision, 0, &rtd);
 
     while(true) {
         //std::cout << "pos = " << pos << std::endl;
         //std::cout << "kmu = " << kmu << std::endl;
         muprev = (count == 0) ? pos[2] + kmusign * 1e-3 : pos[2];
-        raytrace1(pos.data(), kmu.data(), &step, &rtd);
+        raytrace(pos.data(), kmu.data(), &step, &rtd);
         if (pos[1] <= 1.01 * rh) {
             status = 3;
             break;
@@ -2578,10 +2572,10 @@ void compare_raytrace(const double a, const std::array<double, 4> & pos0, const 
 
     geoinf geo(a, pos[1], pos[2], kmu);
 
-    raytrace_prepare(a, pos.data(), kmu.data(), NULL, 0.01, 0, &rtd);
+    raytrace_prepare(a, pos.data(), kmu.data(), 0.01, 0, &rtd);
     while(pos[2] >= 0.) {
         step = 1e-3;
-        raytrace(pos.data(), kmu.data(), NULL, &step, &rtd);
+        raytrace(pos.data(), kmu.data(), &step, &rtd);
         rarrray.push_back(pos[1]);
         muarrray.push_back(pos[2]);
         //std::cout << "pos = " << pos << std::endl;
