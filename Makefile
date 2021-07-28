@@ -7,13 +7,13 @@ WALL = -Wall
 PROFILE = -g -pg
 GDB = -g
 
-SIM5INC = ./sim5/src
-SIM5OBJ = ./sim5/src/sim5lib.o
+EXTLIB_SIM5 = lib/sim5
+EXTLIB_SIM5OBJ = lib/sim5/sim5lib.o
 DEBUG = -UDEBUG
 
 # compilation flags
-CFLAGS = $(STD) $(OPTIM) $(WALL) -I$(SIM5INC)
-LDFLAGS = $(SIM5OBJ) -lstdc++fs #-lCCfits -lcfitsio
+CFLAGS = $(STD) $(OPTIM) $(WALL) -I$(EXTLIB_SIM5)
+LDFLAGS = $(EXTLIB_SIM5OBJ) -lstdc++fs #-lCCfits -lcfitsio
 
 # directories
 BINDIR = ./bin
@@ -26,7 +26,7 @@ default: objs bins
 
 # compile sim5 library
 sim5:
-	$(MAKE) -C sim5
+	$(MAKE) -C lib/sim5
 
 # make OBJ and BIN foldres
 $(OBJDIR):
