@@ -1,0 +1,20 @@
+[physical]
+m = 21.2
+fcol = 1.7
+mdot = 0.056
+rtr = -1.
+te = 100.
+tau = 1.0
+
+[gridsize]
+nphoton = 3200
+
+[option]
+scafile = ../sca_params.dat
+gparamfile = ../gparams.dat
+chandra = 1
+type = 2
+progress = 1
+pol = 1
+KN = 1
+dr = 1e-3

@@ -1,0 +1,19 @@
+[physical]
+a = 0.998
+gtype = 0
+h = 10
+radius = 8
+rout = 100.
+rin = -1.
+
+[gridsize]
+nr = 100
+ntheta = 100
+nphi = 100
+thetamax = 0.5
+
+[option]
+progress = 1
+type = 0
+dr = 1e-3
+
